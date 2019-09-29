@@ -545,10 +545,10 @@ declare namespace yargs {
          * and allows you to provide configuration for the positional arguments accepted by your program:
          */
         usage(message: string): Argv<T>;
-        usage<U>(command: string | ReadonlyArray<string>, description: string, builder?: (args: Argv<T>) => Argv<U>, handler?: (args: Arguments<U>) => void): Argv<T>;
-        usage<U>(command: string | ReadonlyArray<string>, showInHelp: boolean, builder?: (args: Argv<T>) => Argv<U>, handler?: (args: Arguments<U>) => void): Argv<T>;
-        usage<O extends { [key: string]: Options }>(command: string | ReadonlyArray<string>, description: string, builder?: O, handler?: (args: Arguments<InferredOptionTypes<O>>) => void): Argv<T>;
-        usage<O extends { [key: string]: Options }>(command: string | ReadonlyArray<string>, showInHelp: boolean, builder?: O, handler?: (args: Arguments<InferredOptionTypes<O>>) => void): Argv<T>;
+        usage<U>(command: string | ReadonlyArray<string>, description: string, builder?: (args: Argv<T>) => Argv<U>, handler?: (args: Arguments<U>) => void): Argv<U>;
+        usage<U>(command: string | ReadonlyArray<string>, showInHelp: boolean, builder?: (args: Argv<T>) => Argv<U>, handler?: (args: Arguments<U>) => void): Argv<U>;
+        usage<O extends { [key: string]: Options }>(command: string | ReadonlyArray<string>, description: string, builder?: O, handler?: (args: Arguments<InferredOptionTypes<O>>) => void): Argv<InferredOptionTypes<O>>;
+        usage<O extends { [key: string]: Options }>(command: string | ReadonlyArray<string>, showInHelp: boolean, builder?: O, handler?: (args: Arguments<InferredOptionTypes<O>>) => void): Argv<InferredOptionTypes<O>>;
 
         /**
          * Add an option (e.g. `--version`) that displays the version number (given by the version parameter) and exits the process.
